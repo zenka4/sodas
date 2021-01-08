@@ -1,0 +1,15 @@
+{
+    "name": "zenka/plants",
+    "authors": [
+        {
+            "name": "zenka4",
+            "email": "zenka4@inbox.lt"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Jeff\\": ""
+        }
+    },
+    "require": {}
+}
