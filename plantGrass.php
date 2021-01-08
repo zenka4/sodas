@@ -2,11 +2,9 @@
 include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
-// include __DIR__ . '/App.php';
-// include __DIR__ . '/Agurkas.php';
-// include __DIR__ . '/Zirnis.php';
+
 session_start();
-// _dd($_SESSION);
+
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
     App::redirectLogin();
@@ -24,14 +22,10 @@ if (!isset($_SESSION['a'])) {
 //egles
 if (isset($_POST['sodintiEgle'])) {
     App::addPlant(1);
-    // $agurkasObj = new Agurkas(++$_SESSION['augalo ID']);
-    // $agurkasObj->plant($agurkasObj);
     App::redirectPlant();
 }
 if (isset($_POST['sodintiZirnis'])) {
     App::addPlant(2);
-    // $zirnisObj = new Zirnis(++$_SESSION['augalo ID']);
-    // $zirnisObj->plant($zirnisObj);
     App::redirectPlant();
 }
 // ISROVIMO SCENARIJUS

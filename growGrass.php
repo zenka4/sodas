@@ -2,9 +2,7 @@
 include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
-// include __DIR__ . '/App.php';
-// include __DIR__ . '/Agurkas.php';
-// include __DIR__ . '/Zirnis.php';
+
 session_start();
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
@@ -22,21 +20,9 @@ if (!isset($_SESSION['a'])) {
 // AUGINIMO SCENARIJUS
 if (isset($_POST['auginti'])) {
     App::raise();
-    // foreach ($_SESSION['a'] as $index => &$augalas) {
-    //     $augalas->auginti();
-    // }
     header('Location: http://localhost/phpNd/plants/growGrass.php');
     exit;
 }
-// if (isset($_POST['auginti'])) {
-//     foreach ($_SESSION['a'] as $index => &$antiCovid) {
-//         $antiCovid->{'kankoreziai'} += $_POST['kiekis'][$antiCovid->{'id'}];
-//     }
-// _d($_POST['kiekis']);
-//     header('Location: http://localhost/phpNd/plants/growGrass.php');
-//     exit;
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

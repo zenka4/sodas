@@ -4,9 +4,6 @@ include __DIR__ . '/vendor/autoload.php';
 use Jeff\App;
 use Jeff\Agurkas;
 
-// include __DIR__ . '/App.php';
-// include __DIR__ . '/Agurkas.php';
-// include __DIR__ . '/Zirnis.php';
 session_start();
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
@@ -22,11 +19,6 @@ if (!isset($_SESSION['a'])) {
 // viso derliaus nuemimas is tam tikro augalo
 if (isset($_POST['all'])) {
     App::allFromThisPlant();
-    // foreach ($_SESSION['a'] as $index => &$augalas) {
-    //     if ($_POST['all'] == $augalas->id) {
-    //         $augalas->allOfPlant();
-    //     }
-    // }
     App::redirectHarvest();
 }
 // kiek derliaus nuimti
@@ -38,22 +30,6 @@ if (isset($_POST['israut'])) {
 if (isset($_POST['allOfAll'])) {
     Agurkas::allOfAllCompletely();
 }
-
-// if (isset($_POST['israut'])) {
-//     foreach ($_SESSION['a'] as $index => &$antiCovid) {
-//         if ($_POST['israut'] == $antiCovid->{'id'}) {
-//             if ((int)($_POST['kiekRaut'][$antiCovid->{'id'}]) <= $antiCovid->{'kankoreziai'}) {
-//                 $antiCovid->{'kankoreziai'} -= (int)$_POST['kiekRaut'][$antiCovid->{'id'}];
-//             } else {
-//                 $antiCovid->{'kankoreziai'} = 0;
-//             }
-//         }
-//     }
-//     header('Location: http://localhost/phpNd/plants/harvestGrass.php');
-//     exit;
-// }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

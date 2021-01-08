@@ -10,11 +10,6 @@ class App
         $_SESSION['a'] = [];
         $_SESSION['augalo ID'] = 0;
     }
-    // public static function addPlant()
-    // {
-    //     $agurkasObj = new Agurkas(++$_SESSION['augalo ID']);
-    //     $agurkasObj->plant($agurkasObj);
-    // }
     public static function addPlant($which)
     {
         $kuris = $which;
