@@ -21,7 +21,6 @@ if (!isset($_SESSION['a'])) {
 
 // AUGINIMO SCENARIJUS
 if (isset($_POST['auginti'])) {
-    _d($_POST);
     App::raise();
     // foreach ($_SESSION['a'] as $index => &$augalas) {
     //     $augalas->auginti();

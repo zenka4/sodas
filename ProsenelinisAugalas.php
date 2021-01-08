@@ -12,11 +12,7 @@ abstract class ProsenelinisAugalas
         $this->id = $id;
     }
     /////////////////////////////////////////////////////////////////////////////////////
-    public function plant($agurkasObj)
-    {
-        $this->agurkasObj = $agurkasObj;
-        $_SESSION['a'][] = serialize($agurkasObj);
-    }
+    abstract public function plant($something);
     /////////////////////////////////////////////////////////////////////////////////////
     public function kiek()
     {
@@ -41,10 +37,5 @@ abstract class ProsenelinisAugalas
     public function allOfPlant()
     {
         return $this->kazkasIsaugo = 0;
-    }
-    /////////////////////////////////////////////////////////////////////////////////////
-    public function photo()
-    {
-        return $this->photo = rand(1, 5);
     }
 }

@@ -1,16 +1,16 @@
 <?php
-include __DIR__ . '/ProsenelinisAugalas.php';
-include __DIR__ . '/Agurkas.php';
-include __DIR__ . '/Pomidoras.php';
-$pros = new ProsenelinisAugalas(1);
-$agr = new Agurkas(15);
+// include __DIR__ . '/ProsenelinisAugalas.php';
+// include __DIR__ . '/Agurkas.php';
+// include __DIR__ . '/Pomidoras.php';
+// $pros = new ProsenelinisAugalas(1);
+// $agr = new Agurkas(15);
 
 
-$agr->kiek();
-$agr->auginti();
-_d($agr);
+// $agr->kiek();
+// $agr->auginti();
+// _d($agr);
 
-$pmdr = new Pomidoras(2);
+// $pmdr = new Pomidoras(2);
 // $ac = [
 //     'ccc' => 8,
 //     'ddd' => 'ac'
