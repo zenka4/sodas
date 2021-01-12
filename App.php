@@ -68,7 +68,6 @@ class App
 
             $augalas->auginti($_POST['kiekis'][$augalas->id]);
             _d($augalas);
-            $augalas = serialize($augalas);
             $store->save($augalas, $index);
         }
     }
