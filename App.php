@@ -4,12 +4,39 @@ namespace Jeff;
 
 class App
 {
-
+    public static function route()
+    {
+        $uri = str_replace(INSTALL_FOLDER, '', $_SERVER['REQUEST_URI']);
+        $uri = explode('/', $uri);
+        if ($uri[0] == 'loginPlant') {
+            include __DIR__ . '/loginPlant.php';
+        } elseif ($uri[0] == 'plantGrass') {
+            include __DIR__ . '/plantGrass.php';
+        } elseif ($uri[0] == 'growGrass') {
+            include __DIR__ . '/growGrass.php';
+        } elseif ($uri[0] == 'harvestGrass') {
+            include __DIR__ . '/harvestGrass.php';
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
     public static function createSesionA()
     {
         $_SESSION['a'] = [];
         $_SESSION['augalo ID'] = 0;
     }
+    /////////////////////////////////////////////////////////////////////////////////////
+    // public static function addPlant($which)
+    // {
+    //     $kuris = $which;
+    //     if ($kuris == 1) {
+    //         $agurkasObj = new Agurkas($Store->getNewId);
+    //         $agurkasObj->plant($agurkasObj);
+    //     } elseif ($kuris == 2) {
+    //         $zirnisObj = new Zirnis($Store->getNewId);
+    //         $zirnisObj->plant($zirnisObj);
+    //     }
+    // }
+
     public static function addPlant($which)
     {
         $kuris = $which;
@@ -29,6 +56,14 @@ class App
             if ($_POST['rauti'] == $augalas->id) {
                 unset($_SESSION['a'][$index]);
             }
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    public static function raiseS($store)
+    {
+        foreach ($store->data['a'] as $index => $augalas) {
+            $augalas = unserialize($augalas);
+            $augalas->auginti($_POST['kiekis'][$augalas->id]);
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////
@@ -66,19 +101,19 @@ class App
     /////////////////////////////////////*******REDIRECT' AI **********/////////////////////
     public static function redirectLogin()
     {
-        header('location:http://localhost/phpNd/plants/loginPlant.php');
+        header('Location:' . URL . 'loginPlant');
         die;
     }
     /////////////////////////////////////////////////////////////////////////////////////
     public static function redirectPlant()
     {
-        header('Location: http://localhost/phpNd/plants/plantGrass.php');
+        header('Location:' . URL . 'plantGrass');
         exit;
     }
     /////////////////////////////////////////////////////////////////////////////////////
     public static function redirectHarvest()
     {
-        header('Location: http://localhost/phpNd/plants/harvestGrass.php');
+        header('Location:' . URL . 'harvestGrass');
         exit;
     }
 }

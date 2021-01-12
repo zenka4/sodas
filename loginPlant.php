@@ -1,8 +1,9 @@
 <?php
-session_start();
+defined('DOOR_BELL') || die('nelipk pro langa');
+
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
-    header('location:http://localhost/phpNd/plants/loginPlant.php');
+    header('location:http://localhost/phpNd/plants/loginPlant');
     die;
 }
 // tikrinam ar prisijungimo info teisinga
@@ -14,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ) {
             $_SESSION['name'] = $user['name'];
             $_SESSION['logget'] = 1;
-            header('location:http://localhost/phpNd/plants/plantGrass.php');
+            header('location:http://localhost/phpNd/plants/plantGrass');
             die;
         }
     }
     $_SESSION['msg'] = 'Bad email or password';
-    header('location:http://localhost/phpNd/plants/loginPlant.php');
+    header('location:http://localhost/phpNd/plants/loginPlant');
     die;
 }
 if (isset($_SESSION['msg'])) {

@@ -1,10 +1,12 @@
 <?php
-include __DIR__ . '/vendor/autoload.php';
+defined('DOOR_BELL') || die('nelipk pro langa');
+// include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
 use Jeff\Agurkas;
 
-session_start();
+$store = new Jeff\Store('augalas');
+
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
     App::redirectLogin();
@@ -13,9 +15,9 @@ if (!isset($_SESSION['logget']) || $_SESSION['logget'] != 1) {
     App::redirectLogin();
 }
 
-if (!isset($_SESSION['a'])) {
-    App::createSesionA();
-}
+// if (!isset($_SESSION['a'])) {
+//     App::createSesionA();
+// }
 // viso derliaus nuemimas is tam tikro augalo
 if (isset($_POST['all'])) {
     App::allFromThisPlant();
@@ -47,16 +49,15 @@ if (isset($_POST['allOfAll'])) {
         <div class="row">
             <h2>Derlius</h2>
             <nav class="menu">
-                <a href="http://localhost/phpNd/plants/plantGrass.php">Sodinti</a>
-                <a href="http://localhost/phpNd/plants/growGrass.php">Auginti</a>
+                <a href="http://localhost/phpNd/plants/plantGrass">Sodinti</a>
+                <a href="http://localhost/phpNd/plants/growGrass">Auginti</a>
                 <a href="?logout">Exit</a>
             </nav>
         </div>
     </div>
     <form class="container" action="" method="post">
+        <?php foreach ($store->getAll() as $augalas) : ?>
 
-        <?php foreach ($_SESSION['a'] as $augalas) : ?>
-            <?php $augalas = unserialize($augalas) ?>
             <div class="row">
                 <img src="./img/<?= $augalas->photo ?>.jpg" alt="">
                 <div class="forma">

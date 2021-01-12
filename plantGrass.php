@@ -1,9 +1,10 @@
 <?php
-include __DIR__ . '/vendor/autoload.php';
+defined('DOOR_BELL') || die('nelipk pro langa');
+// include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
 
-session_start();
+$store = new Jeff\Store('augalas');
 
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
@@ -21,16 +22,19 @@ if (!isset($_SESSION['a'])) {
 // SODINIMO SCENARIJUS
 //egles
 if (isset($_POST['sodintiEgle'])) {
-    App::addPlant(1);
+    $store->addPlant(1);
+    // App::addPlant(1);
     App::redirectPlant();
 }
 if (isset($_POST['sodintiZirnis'])) {
-    App::addPlant(2);
+    $store->addPlant(2);
+    // App::addPlant(2);
     App::redirectPlant();
 }
 // ISROVIMO SCENARIJUS
 if (isset($_POST['rauti'])) {
-    App::deletePlant();
+    $store->deletePlant($_POST['rauti']);
+    // App::deletePlant(); //<-pakeist
     App::redirectPlant();
 }
 ?>
@@ -53,15 +57,14 @@ if (isset($_POST['rauti'])) {
         <div class="row">
             <h2>Sodinimas</h2>
             <nav class="menu">
-                <a href="http://localhost/phpNd/plants/growGrass.php">Auginti</a>
-                <a href="http://localhost/phpNd/plants/harvestGrass.php">Derlius</a>
-                <a href="?logout">Exit</a>
+                <a href="http://localhost/phpNd/plants/growGrass">Auginti</a>
+                <a href="http://localhost/phpNd/plants/harvestGrass">Derlius</a>
+                <a href="loginPlant">Exit</a>
             </nav>
         </div>
     </div>
-    <form class="container" action="" method="post">
-        <?php foreach ($_SESSION['a'] as $augalas) : ?>
-            <?php $augalas = unserialize($augalas) ?>
+    <form class="container" action="<?= URL . 'plantGrass' ?>" method="post">
+        <?php foreach ($store->getAll() as $augalas) : ?>
             <div class="row">
                 <img src="./img/<?= $augalas->photo ?>.jpg" alt="">
                 <p class="plnt">AUGALO nr. <?= $augalas->id ?><span>isaugusiu: <?= $augalas->kazkasIsaugo ?></span></p>
