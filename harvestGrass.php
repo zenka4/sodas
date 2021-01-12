@@ -20,17 +20,17 @@ if (!isset($_SESSION['logget']) || $_SESSION['logget'] != 1) {
 // }
 // viso derliaus nuemimas is tam tikro augalo
 if (isset($_POST['all'])) {
-    App::allFromThisPlant();
+    App::allFromThisPlant($store);
     App::redirectHarvest();
 }
 // kiek derliaus nuimti
 if (isset($_POST['israut'])) {
-    App::howMuchHarvestDelete();
+    App::howMuchHarvestDelete($store);
     App::redirectHarvest();
 }
 // is visu augalu derliaus nuemimas
 if (isset($_POST['allOfAll'])) {
-    Agurkas::allOfAllCompletely();
+    Agurkas::allOfAllCompletely($store);
 }
 ?>
 <!DOCTYPE html>

@@ -37,27 +37,27 @@ class App
     //     }
     // }
 
-    public static function addPlant($which)
-    {
-        $kuris = $which;
-        if ($kuris == 1) {
-            $agurkasObj = new Agurkas(++$_SESSION['augalo ID']);
-            $agurkasObj->plant($agurkasObj);
-        } elseif ($kuris == 2) {
-            $zirnisObj = new Zirnis(++$_SESSION['augalo ID']);
-            $zirnisObj->plant($zirnisObj);
-        }
-    }
+    // public static function addPlant($which)
+    // {
+    //     $kuris = $which;
+    //     if ($kuris == 1) {
+    //         $agurkasObj = new Agurkas(++$_SESSION['augalo ID']);
+    //         $agurkasObj->plant($agurkasObj);
+    //     } elseif ($kuris == 2) {
+    //         $zirnisObj = new Zirnis(++$_SESSION['augalo ID']);
+    //         $zirnisObj->plant($zirnisObj);
+    //     }
+    // }
     /////////////////////////////////////////////////////////////////////////////////////
-    public static function deletePlant()
-    {
-        foreach ($_SESSION['a'] as $index => $augalas) {
-            $augalas = unserialize($augalas);
-            if ($_POST['rauti'] == $augalas->id) {
-                unset($_SESSION['a'][$index]);
-            }
-        }
-    }
+    // public static function deletePlant()
+    // {
+    //     foreach ($_SESSION['a'] as $index => $augalas) {
+    //         $augalas = unserialize($augalas);
+    //         if ($_POST['rauti'] == $augalas->id) {
+    //             unset($_SESSION['a'][$index]);
+    //         }
+    //     }
+    // }
     /////////////////////////////////////////////////////////////////////////////////////
     public static function raise($store)
     {
@@ -79,27 +79,36 @@ class App
     //     }
     // }
     /////////////////////////////////////////////////////////////////////////////////////
-    public static function howMuchHarvestDelete()
+    public static function howMuchHarvestDelete($store)
     {
-        foreach ($_SESSION['a'] as $index => $augalas) {
+        foreach ($store->getData()['a'] as $index => $augalas) {
             $augalas = unserialize($augalas);
             $augalas->kiekTrint($_POST['kiekRaut'][$augalas->id]);
-            $augalas = serialize($augalas);
-            $_SESSION['a'][$index] = $augalas;
+            $store->save($augalas, $index);
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////
-    public  static function allFromThisPlant()
+    public  static function allFromThisPlant($store)
     {
-        foreach ($_SESSION['a'] as $index => $augalas) {
+        foreach ($store->getData()['a'] as $index => $augalas) {
             $augalas = unserialize($augalas);
             if ($_POST['all'] == $augalas->id) {
                 $augalas->allOfPlant();
-                $augalas = serialize($augalas);
-                $_SESSION['a'][$index] = $augalas;
+                $store->save($augalas, $index);
             }
         }
     }
+    // public  static function allFromThisPlant()
+    // {
+    //     foreach ($_SESSION['a'] as $index => $augalas) {
+    //         $augalas = unserialize($augalas);
+    //         if ($_POST['all'] == $augalas->id) {
+    //             $augalas->allOfPlant();
+    //             $augalas = serialize($augalas);
+    //             $_SESSION['a'][$index] = $augalas;
+    //         }
+    //     }
+    // }
     /////////////////////////////////////*******REDIRECT' AI **********/////////////////////
     public static function redirectLogin()
     {

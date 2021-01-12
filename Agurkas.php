@@ -13,13 +13,12 @@ class Agurkas extends ProsenelinisAugalas
         $this->photo();
     }
     /////////////////////////////////////////////////////////////////////////////////////
-    public static function allOfAllCompletely()
+    public static function allOfAllCompletely($store)
     {
-        foreach ($_SESSION['a'] as $index => $augalas) {
+        foreach ($store->getData()['a'] as $index => $augalas) {
             $augalas = unserialize($augalas);
             $augalas->allOfPlant();
-            $augalas = serialize($augalas);
-            $_SESSION['a'][$index] = $augalas;
+            $store->save($augalas, $index);
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////
