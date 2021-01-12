@@ -59,28 +59,25 @@ class App
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////
-    public static function raiseS($store)
+    public static function raise($store)
     {
 
         foreach ($store->getData()['a'] as $index => $augalas) {
-
             $augalas = unserialize($augalas);
-
             $augalas->auginti($_POST['kiekis'][$augalas->id]);
-            _d($augalas);
             $store->save($augalas, $index);
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////
-    public static function raise()
-    {
-        foreach ($_SESSION['a'] as $index => $augalas) {
-            $augalas = unserialize($augalas);
-            $augalas->auginti($_POST['kiekis'][$augalas->id]);
-            $augalas = serialize($augalas);
-            $_SESSION['a'][$index] = $augalas;
-        }
-    }
+    // public static function raise()
+    // {
+    //     foreach ($_SESSION['a'] as $index => $augalas) {
+    //         $augalas = unserialize($augalas);
+    //         $augalas->auginti($_POST['kiekis'][$augalas->id]);
+    //         $augalas = serialize($augalas);
+    //         $_SESSION['a'][$index] = $augalas;
+    //     }
+    // }
     /////////////////////////////////////////////////////////////////////////////////////
     public static function howMuchHarvestDelete()
     {

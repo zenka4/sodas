@@ -21,7 +21,7 @@ if (!isset($_SESSION['logget']) || $_SESSION['logget'] != 1) {
 
 // AUGINIMO SCENARIJUS
 if (isset($_POST['auginti'])) {
-    App::raiseS($store);
+    App::raise($store);
     // App::raise();
     header('Location: http://localhost/phpNd/plants/growGrass');
     exit;
