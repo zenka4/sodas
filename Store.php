@@ -63,8 +63,8 @@ class Store
     public function getAll()
     {
         $all = [];
-        foreach ($this->data['a'] as $obj) {
-            $all[] = unserialize($obj);
+        foreach ($this->data['a'] as $augalas) {
+            $all[] = unserialize($augalas);
         }
         return $all;
     }
@@ -77,5 +77,10 @@ class Store
                 unset($this->data['a'][$index]);
             }
         }
+    }
+    public function save($augalas, $index)
+    {
+        $augalas = serialize($augalas);
+        $this->data['a'][$index] = $augalas;
     }
 }

@@ -61,9 +61,15 @@ class App
     /////////////////////////////////////////////////////////////////////////////////////
     public static function raiseS($store)
     {
-        foreach ($store->data['a'] as $index => $augalas) {
+
+        foreach ($store->getData()['a'] as $index => $augalas) {
+
             $augalas = unserialize($augalas);
+
             $augalas->auginti($_POST['kiekis'][$augalas->id]);
+            _d($augalas);
+            $augalas = serialize($augalas);
+            $store->save($augalas, $index);
         }
     }
     /////////////////////////////////////////////////////////////////////////////////////

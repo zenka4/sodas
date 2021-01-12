@@ -9,5 +9,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Jeff\\Agurkas' => $baseDir . '/Agurkas.php',
     'Jeff\\App' => $baseDir . '/App.php',
+    'Jeff\\ProsenelinisAugalas' => $baseDir . '/ProsenelinisAugalas.php',
+    'Jeff\\Store' => $baseDir . '/Store.php',
     'Jeff\\Zirnis' => $baseDir . '/Zirnis.php',
 );

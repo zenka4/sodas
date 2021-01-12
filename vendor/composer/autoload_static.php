@@ -24,6 +24,8 @@ class ComposerStaticInit0d8192c9060fed1ebc91e1d2c1336405
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Jeff\\Agurkas' => __DIR__ . '/../..' . '/Agurkas.php',
         'Jeff\\App' => __DIR__ . '/../..' . '/App.php',
+        'Jeff\\ProsenelinisAugalas' => __DIR__ . '/../..' . '/ProsenelinisAugalas.php',
+        'Jeff\\Store' => __DIR__ . '/../..' . '/Store.php',
         'Jeff\\Zirnis' => __DIR__ . '/../..' . '/Zirnis.php',
     );
 

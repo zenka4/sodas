@@ -3,8 +3,9 @@ defined('DOOR_BELL') || die('nelipk pro langa');
 // include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
+use Jeff\Store;
 
-$store = new Jeff\Store('augalas');
+$store = new Store('augalas');
 
 if (isset($_GET['logout'])) {
     $_SESSION['logget'] = 0;
@@ -52,10 +53,9 @@ if (isset($_POST['auginti'])) {
     <form class="container" action="" method="post">
         <?php foreach ($store->getAll() as $augalas) : ?>
             <div class="row">
-                <?php $augalas->kiek() ?>
                 <img src="./img/<?= $augalas->photo ?>.jpg" alt="">
-                <p class="gr">ANTI-COV-WEED Nr. <?= $augalas->id ?><span>kankorėžių : <?= $augalas->kazkasIsaugo ?></span><span>+ <?= $augalas->kiek ?></span></p>
-                <input type="hidden" name="kiekis[<?= $augalas->id ?>]" value="<?= $augalas->kiek ?>">
+                <p class="gr">ANTI-COV-WEED Nr. <?= $augalas->id ?><span>kankorėžių : <?= $augalas->kazkasIsaugo ?></span><span>+ <?= $kiekis = $augalas->kiek() ?></span></p>
+                <input type="hidden" name="kiekis[<?= $augalas->id ?>]" value="<?= $kiekis ?>">
 
 
             </div>
