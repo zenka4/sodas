@@ -5,7 +5,7 @@ namespace Jeff;
 class Store
 {
     private const PATH = __DIR__ . '/data/';
-    private $fileName = 'sodas'; // nebutinas cia tas sodas?
+    private $fileName = 'sodas';
     private $data;
     /////////////////////////////////////////////////////////////////////////////////////
     public function __construct($file)

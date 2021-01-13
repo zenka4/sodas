@@ -1,6 +1,5 @@
 <?php
 defined('DOOR_BELL') || die('nelipk pro langa');
-// include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
 use Jeff\Agurkas;
@@ -15,9 +14,6 @@ if (!isset($_SESSION['logget']) || $_SESSION['logget'] != 1) {
     App::redirectLogin();
 }
 
-// if (!isset($_SESSION['a'])) {
-//     App::createSesionA();
-// }
 // viso derliaus nuemimas is tam tikro augalo
 if (isset($_POST['all'])) {
     App::allFromThisPlant($store);

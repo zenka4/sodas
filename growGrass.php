@@ -1,6 +1,5 @@
 <?php
 defined('DOOR_BELL') || die('nelipk pro langa');
-// include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
 
@@ -14,10 +13,6 @@ if (isset($_GET['logout'])) {
 if (!isset($_SESSION['logget']) || $_SESSION['logget'] != 1) {
     App::redirectLogin();
 }
-
-// if (!isset($_SESSION['a'])) {
-//     App::createSesionA();
-// }
 
 // AUGINIMO SCENARIJUS
 if (isset($_POST['auginti'])) {

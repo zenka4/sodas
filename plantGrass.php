@@ -1,6 +1,5 @@
 <?php
 defined('DOOR_BELL') || die('nelipk pro langa');
-// include __DIR__ . '/vendor/autoload.php';
 
 use Jeff\App;
 
@@ -23,18 +22,15 @@ if (!isset($_SESSION['a'])) {
 //egles
 if (isset($_POST['sodintiEgle'])) {
     $store->addPlant(1);
-    // App::addPlant(1);
     App::redirectPlant();
 }
 if (isset($_POST['sodintiZirnis'])) {
     $store->addPlant(2);
-    // App::addPlant(2);
     App::redirectPlant();
 }
 // ISROVIMO SCENARIJUS
 if (isset($_POST['rauti'])) {
     $store->deletePlant($_POST['rauti']);
-    // App::deletePlant(); //<-pakeist
     App::redirectPlant();
 }
 ?>
